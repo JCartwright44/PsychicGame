@@ -8,6 +8,14 @@ var guessesUsed = []
 document.onkeyup = function(event) {
     var guessed = event.key;
     var answer = letters[Math.floor(Math.random() * letters.length)];
+    //if guessed = answer, then number of wins goes up by one
+    if (guessed === answer){
+        console.log("correct")
+    } 
+    else {
+        console.log("incorrect")
+    }
+    //else number of losses goes up by one, guesses left goes down by one, and letter appears in guesses used.
 
 
 
