@@ -14,17 +14,28 @@ document.onkeypress = function(event) {
         console.log("correct")
         var newWins = (wins++);
         document.getElementById("wins").innerHTML = "Wins: " + newWins;
+        guessesLeft = 9;
+        guessesUsed = [];
     } 
-    else {
-        console.log("incorrect")
+    // else{
+    //     console.log("incorrect")
+    //     var newGuessesLeft = (guessesLeft--);
+    //     document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + newGuessesLeft;
+    //     guessesUsed.push(event.key);
+    //     document.getElementById("guessesUsed").innerHTML = "Your Guesses so far: " + guessesUsed;
+    //     // end counting down at zero, add one to losses, clear guesses used array, reset guesses left
+    if (guessed != answer){
+        console.log("Incorrect")
         var newGuessesLeft = (guessesLeft--);
         document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + newGuessesLeft;
         guessesUsed.push(event.key);
         document.getElementById("guessesUsed").innerHTML = "Your Guesses so far: " + guessesUsed;
     }
-
-
-
-
-
-}
+    if (newGuessesLeft === 0) {
+        console.log("Loss")
+        var newLosses = (losses++); 
+        document.getElementById("losses"). innerHTML = "Losses: " + newLosses;
+        guessesLeft = 9;
+        guessesUsed = [];
+    }
+    }
